@@ -33,7 +33,7 @@ export function OrderStatus({ status }: OrderStatusProps) {
 
   function renderOrderStatus(status: string) {
     const style = orderStatusStyleMap[status]
-    return <span className={style}/>
+    return <span className={style} />
   }
 
 

@@ -52,7 +52,7 @@ export function Pagination({ pageIndex, perPage, totalCount,
             <span className="sr-only">Next Page</span>
           </Button>
           <Button
-            onClick={() => onPageChange(pageIndex - 1)}
+            onClick={() => onPageChange(pages - 1)}
             disabled={pages <= pageIndex + 1}
             variant="outline" className="h-8 w-8 p-0">
             <ChevronsRight className="h-4 w-4" />
