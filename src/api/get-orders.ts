@@ -16,6 +16,9 @@ export interface Meta {
 
 export interface GetOrdersQuery {
   pageIndex?: number | null;
+  orderId?: string | null;
+  customerName?: string | null;
+  status?: string | null;
 }
 
 export interface GetOrdersResponse {
@@ -23,10 +26,18 @@ export interface GetOrdersResponse {
   meta: Meta;
 }
 
-export async function getOrders({ pageIndex = 0 }: GetOrdersQuery) {
+export async function getOrders({
+  pageIndex,
+  customerName,
+  orderId,
+  status,
+}: GetOrdersQuery) {
   const response = await api.get<GetOrdersResponse>("/orders", {
     params: {
-      pageIndex: pageIndex,
+      pageIndex,
+      customerName,
+      orderId,
+      status,
     },
   });
 
