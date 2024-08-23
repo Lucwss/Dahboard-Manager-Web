@@ -14,15 +14,19 @@ export interface Meta {
   totalCount: number;
 }
 
+export interface GetOrdersQuery {
+  pageIndex?: number | null;
+}
+
 export interface GetOrdersResponse {
   orders: Order[];
   meta: Meta;
 }
 
-export async function getOrders() {
+export async function getOrders({ pageIndex = 0 }: GetOrdersQuery) {
   const response = await api.get<GetOrdersResponse>("/orders", {
     params: {
-      pageIndex: 0,
+      pageIndex: pageIndex,
     },
   });
 
